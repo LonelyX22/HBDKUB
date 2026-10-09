@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#fff8f3" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="alternate icon" type="image/x-icon" href="favicon.ico" />
+  <meta name="description" content="ของขวัญวันเกิดแด่แม่ จากลูกชายสุดหล่อ 8 ตุลาคม" />
+  <title>Happy Birthday Mom | จากลูกชายสุดหล่อ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Mali:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=mom-v5" />
+  <link rel="stylesheet" href="mom-theme.css?v=mom-v5" />
+  <link rel="stylesheet" href="layout-fixes.css?v=mom-v5" />
+  <link rel="stylesheet" href="premium-v5.css?v=5.0.0" />
+  <link rel="stylesheet" href="waiting-music.css?v=1.0.0" />
+</head>
+<body class="intro-locked release-locked">
+  <!-- เปิดเซอร์ไพรส์ 9 ตุลาคม 2026 เวลา 18:00 ประเทศไทย (เปิดชมย้อนหลังได้) -->
+  <section class="release-gate" id="release-gate" aria-label="นับถอยหลังสู่วันเปิดของขวัญ">
+    <div class="release-space" aria-hidden="true">
+      <span class="release-orbit orbit-one"></span>
+      <span class="release-orbit orbit-two"></span>
+      <span class="release-star star-a">✦</span>
+      <span class="release-star star-b">✨</span>
+      <span class="release-star star-c">💗</span>
+      <span class="release-star star-d">♡</span>
+    </div>
+
+    <article class="release-card">
+      <div class="release-alien-wrap" aria-hidden="true">
+        <span class="release-halo"></span>
+        <img src="assets/bouquet.svg" alt="" class="release-alien" />
+      </div>
+
+      <p class="release-kicker">A LITTLE SURPRISE FOR MOM</p>
+      <h1>รอก่อนไม่ต้องรีบบ 💐</h1>
+      <p class="release-copy">ของขวัญจากลูกชายสุดหล่อ กำลังรอเปิดให้แม่ในวันที่ 9 ตุลาคม เวลา 18:00 น.🤍</p>
+
+      <div class="release-timer" id="release-timer" role="timer" aria-live="polite">
+        <div class="release-time-box"><strong id="release-days">00</strong><span>วัน</span></div>
+        <i>:</i>
+        <div class="release-time-box"><strong id="release-hours">00</strong><span>ชั่วโมง</span></div>
+        <i>:</i>
+        <div class="release-time-box"><strong id="release-minutes">00</strong><span>นาที</span></div>
+        <i>:</i>
+        <div class="release-time-box"><strong id="release-seconds">00</strong><span>วินาที</span></div>
+      </div>
+
+      <div class="release-date-pill">
+        <span>🗓️</span> เปิดวันที่ <strong>09.10.2026</strong> เวลา <strong>18:00 น.</strong>
+      </div>
+
+      <!-- เพลงพิเศษสำหรับหน้ารอ: เล่นตั้งแต่ 0:00 เมื่อผู้ใช้อนุญาต -->
+      <div class="release-music-control" aria-label="เพลงระหว่างรอเปิดของขวัญ">
+        <button type="button" id="waiting-music-toggle" class="release-music-toggle" aria-label="เปิดเพลงระหว่างรอ" aria-pressed="false">
+          <span id="waiting-music-icon" aria-hidden="true">♫</span>
+          <span id="waiting-music-label">กดเปิดเพลงฟังระหว่างรอ 💗</span>
+        </button>
+        <small class="release-music-hint" id="waiting-music-hint" role="status" aria-live="polite">ในดวงดาวสีน้ำเงิน · เริ่มเพลงตั้งแต่ต้น (0:00)</small>
+      </div>
+
+      <p class="release-status" id="release-status">กำลังนับถอยหลังตามเวลาไทย</p>
+      <div class="release-progress" aria-hidden="true"><span id="release-progress-bar"></span></div>
+    </article>
+  </section>
+
+  <!-- ประตูรหัสลับสำหรับความสนุกเท่านั้น ไม่ใช่การรักษาความปลอดภัย -->
+  <section class="password-gate" id="password-gate" aria-label="กรอกรหัสลับเพื่อเข้าเว็บไซต์">
+    <div class="password-space-dust" aria-hidden="true"></div>
+    <div class="password-card" id="password-card">
+      <div class="password-alien-wrap" aria-hidden="true">
+        <span class="password-orbit orbit-a"></span>
+        <span class="password-orbit orbit-b"></span>
+        <img src="assets/bouquet.svg" alt="" class="password-alien-image" />
+      </div>
+      <p class="password-kicker">ONLY FOR MY MOM</p>
+      <h1>รหัสลับของแม่ 💌</h1>
+      <p class="password-copy">ใบ้ให้แล้วนะ: รหัสคือวันและเดือนเกิดแม่ รวมกัน 4 หลัก 🎂</p>
+      <form class="password-form" id="password-form" novalidate>
+        <label class="sr-only" for="password-input">รหัสผ่าน 4 หลัก</label>
+        <div class="password-input-wrap">
+          <input id="password-input" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" placeholder="••••" aria-describedby="password-error" />
+          <span class="password-scan" aria-hidden="true"></span>
+        </div>
+        <button class="primary-btn password-submit" type="submit">
+          <span>เปิดของขวัญให้แม่</span><span>✦</span>
+        </button>
+      </form>
+      <p class="password-error" id="password-error" role="status" aria-live="polite"></p>
+      <div class="password-signal" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </div>
+  </section>
+
+  <!-- นับถอยหลังหลังใส่รหัสถูก -->
+  <section class="galaxy-countdown" id="galaxy-countdown" aria-label="กำลังเปิดของขวัญให้แม่" hidden>
+    <div class="countdown-nebula" aria-hidden="true"></div>
+    <div class="countdown-stars" aria-hidden="true"><span>✦</span><span>♡</span><span>✨</span><span>💗</span></div>
+    <div class="countdown-content">
+      <p class="countdown-label">SURPRISE UNLOCKED</p>
+      <div class="countdown-orbit" aria-hidden="true">
+        <span class="countdown-number" id="countdown-number">3</span>
+        <i></i><i></i><i></i>
+      </div>
+      <h2 id="countdown-message">กำลังเตรียมของขวัญให้แม่</h2>
+      <p>เตรียมรับจดหมายจากลูกชายสุดหล่อได้เลย 💗</p>
+      <div class="countdown-loader" aria-hidden="true"><span></span></div>
+    </div>
+  </section>
+  <!-- ซองจดหมายเปิดเว็บ -->
+  <section class="envelope-intro is-waiting" id="envelope-intro" aria-label="เปิดจดหมายวันเกิด">
+    <div class="intro-stars" aria-hidden="true"><span>✦</span><span>♡</span><span>✨</span><span>💗</span></div>
+    <button class="envelope-wrap" id="open-envelope" type="button" aria-label="เปิดซองจดหมาย">
+      <span class="envelope-shadow"></span>
+      <span class="envelope">
+        <span class="envelope-back"></span>
+        <span class="letter-preview">
+          <small>SPECIAL DELIVERY</small>
+          <strong>ถึงแม่ที่รัก 💌</strong>
+          <em>จดหมายจากใจลูกชาย</em>
+        </span>
+        <span class="envelope-front"></span>
+        <span class="envelope-flap"></span>
+        <span class="envelope-seal">💗</span>
+      </span>
+      <span class="open-hint">แตะเพื่อเปิดจดหมาย</span>
+    </button>
+  </section>
+
+  <!-- Cute ambience -->
+  <div class="soft-grain" aria-hidden="true"></div>
+  <div class="cute-aurora aurora-pink" aria-hidden="true"></div>
+  <div class="cute-aurora aurora-mint" aria-hidden="true"></div>
+  <div class="cute-aurora aurora-lilac" aria-hidden="true"></div>
+  <div class="cute-decor" aria-hidden="true">
+    <span style="--x:6%;--y:16%;--d:0s;--s:1.05">💗</span>
+    <span style="--x:14%;--y:76%;--d:1.1s;--s:.75">✦</span>
+    <span style="--x:28%;--y:9%;--d:2.4s;--s:.62">♡</span>
+    <span style="--x:43%;--y:84%;--d:.7s;--s:.72">✨</span>
+    <span style="--x:61%;--y:12%;--d:1.8s;--s:.66">💫</span>
+    <span style="--x:73%;--y:77%;--d:2.8s;--s:.9">💗</span>
+    <span style="--x:88%;--y:19%;--d:.3s;--s:.78">✦</span>
+    <span style="--x:94%;--y:63%;--d:1.5s;--s:.7">♡</span>
+  </div>
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+  <div id="cursor-trail" aria-hidden="true"></div>
+  <div id="portal" aria-hidden="true"></div>
+
+  <button class="sound-toggle" id="sound-toggle" type="button" aria-label="เปิดหรือปิดเสียงเอฟเฟกต์" aria-pressed="false">
+    <span class="sound-icon">🔊</span>
+  </button>
+
+  <!-- ตัวนับเกมตามหาหัวใจลับ -->
+  <aside class="heart-hunt-counter" id="heart-hunt-counter" aria-live="polite">
+    <span class="heart-counter-icon" aria-hidden="true">💗</span>
+    <span class="heart-counter-copy">
+      <small>หัวใจลับ</small>
+      <strong><span id="heart-found-count">0</span>/<span id="heart-total-count">21</span></strong>
+    </span>
+    <span class="heart-counter-track" aria-hidden="true"><i id="heart-counter-bar"></i></span>
+  </aside>
+
+  <!-- Easter egg: กดค้าง 2 วินาที -->
+  <button class="secret-heart" id="secret-heart" type="button" aria-label="กดค้างเพื่ออ่านข้อความลับ">
+    <span class="secret-ring" aria-hidden="true"></span><span>💗</span>
+    <small>กดค้าง</small>
+  </button>
+
+  <main class="app" id="app" aria-live="polite">
+    <section class="scene scene-1 is-active" data-scene="0" aria-label="หน้าเริ่มต้น">
+      <div class="nebula nebula-a"></div><div class="nebula nebula-b"></div>
+      <div class="planet planet-a"></div><div class="planet planet-b"></div>
+      <div class="scene-stickers" aria-hidden="true"><span>🎀</span><span>♡</span><span>✦</span></div>
+      <div class="scene-inner hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">8 OCTOBER • FOR MY LOVELY MOM</p>
+          <h1 class="mega-title type-on-enter" data-text="วันเกิด ใครน่าา">HAPPY BIRTHDAY</h1>
+          <p class="thai-title reveal delay-2">สุขสันต์วันเกิดนะแม่ 💐</p>
+          <p class="subtitle reveal delay-3">โซน รักเเม่มากๆนะะ </p>
+          <div class="mini-love-note reveal delay-3"><span>♡</span>จากลูกชายสุดหล่อ <span>♡</span></div>
+          <button class="primary-btn next-btn reveal delay-4" type="button"><span>เริ่มเปิดของขวัญ</span><span class="btn-arrow">➜</span></button>
+        </div>
+        <div class="hero-visual reveal delay-2">
+          <div class="ufo"><div class="ufo-dome"></div><div class="ufo-ring"></div><div class="ufo-lights"><i></i><i></i><i></i><i></i><i></i></div><div class="ufo-beam"></div></div>
+          <img class="alien alien-hero" src="assets/bouquet.svg" alt="ช่อดอกไม้สีชมพูสำหรับแม่" />
+          <div class="orbit orbit-one"><span>★</span></div><div class="orbit orbit-two"><span>💗</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-question" data-scene="1" aria-label="หน้าแม่รู้ไหม">
+      <div class="question-glow glow-a"></div><div class="question-glow glow-b"></div>
+      <div class="scene-stickers" aria-hidden="true"><span>🌷</span><span>💫</span><span>♡</span></div>
+      <div class="scene-inner question-layout">
+        <div class="question-visual reveal">
+          <div class="question-halo"></div><span class="question-spark q1">✦</span><span class="question-spark q2">💗</span><span class="question-spark q3">✦</span>
+          <img class="alien alien-question" src="assets/bouquet.svg" alt="ช่อดอกไม้จากลูกกำลังรอคำตอบ" />
+        </div>
+        <div class="question-copy cute-card">
+          <div class="cute-card-pin" aria-hidden="true">💗</div>
+          <h2 class="big-thai question-title type-on-enter" data-text="เเม่รู้มั้ยว่าโซน รักเเม่เเค่ไหน">แม่รู้ไหมว่าลูกรักแม่แค่ไหน</h2>
+          <p class="question-subtitle reveal delay-2"></p>
+          <div class="answer-row reveal delay-3">
+            <button class="primary-btn branch-btn answer-btn" data-go="2" type="button">รู้สิ 💗</button>
+            <button class="ghost-btn branch-btn answer-btn no-answer" data-go="2" type="button">ไม่รู้</button>
+          </div>
+          <p class="tiny-note reveal delay-4">ตอบข้อไหนก็ได้ด้ด้ด้้</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-2" data-scene="2" aria-label="หน้าขอบคุณแม่">
+      <div class="scene-stickers" aria-hidden="true"><span>🥺</span><span>🎀</span><span>✨</span></div>
+      <div class="scene-inner split-layout">
+        <div class="alien-card reveal cute-card">
+          <div class="speech-bubble">แม่คือคนเก่งที่สุดสำหรับลูก 🌸</div>
+          <img class="alien alien-wave" src="assets/bouquet.svg" alt="ช่อดอกไม้แทนคำขอบคุณแม่" />
+          <div class="floating-heart h1">💗</div><div class="floating-heart h2">💗</div><div class="floating-heart h3">✨</div>
+        </div>
+        <div class="copy-panel">
+          <h2 class="big-thai type-on-enter" data-text="มีเรื่องอยากขอบคุณแม่">โซนมีเรื่องอยากขอบคุณแม่</h2>
+          <p class="subtitle reveal delay-2">ขอบคุณที่เหนื่อยเพื่อโซน คอยดูแล เป็นห่วง เเละ คอยให้ตังโซนนตลอดเลยย</p>
+          <div class="choice-row reveal delay-3" id="choice-row">
+            <button class="primary-btn next-btn" type="button">มีคำอวยพรให้ด้วย 💗</button>
+            <button class="ghost-btn dodge-btn" id="dodge-btn" type="button">ขอฟังอีกหน่อย 🌷</button>
+          </div>
+          <p class="tiny-note reveal delay-4" id="dodge-note">ขอบคุณแม่จริง ๆ นะครับ</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-3" data-scene="3" aria-label="หน้าคำอวยพร">
+      <div class="scene-stickers" aria-hidden="true"><span>🌸</span><span>💗</span><span>🌼</span></div>
+      <div class="scene-inner promise-layout">
+        <div class="promise-copy">
+          <h2 class="big-thai type-on-enter" data-text="คำอวยพรสำหรับเเม่">คำอวยพรสำหรับแม่</h2>
+          <p class="subtitle reveal delay-2">ในวันเกิดปีนี้ ขอให้แม่ได้รับแต่สิ่งดี ๆ นะครับ</p>
+          <div class="promise-list reveal delay-3">
+            <div><span>01</span> ขอให้แม่สุขภาพแข็งแรง อยู่กับโซนไปนาน ๆ</div>
+            <div><span>02</span> ขอให้แม่ยิ้มเยอะ ๆ และมีความสุขทุกวัน</div>
+            <div><span>03</span> ขอให้แม่ได้พักผ่อน ไม่ต้องเหนื่อยมาก</div>
+            <div><span>04</span> ขอให้ทุกความฝันของแม่เป็นจริง มีตังเยอะๆๆ</div>
+          </div>
+          <button class="primary-btn next-btn reveal delay-4" type="button">ไปกันต่ออ 🌷</button>
+        </div>
+        <div class="heart-core reveal delay-2 cute-card">
+          <div class="pulse-ring r1"></div><div class="pulse-ring r2"></div><div class="pulse-ring r3"></div>
+          <div class="heart-gem" aria-hidden="true">♡</div>
+          <img class="alien alien-hug" src="assets/bouquet.svg" alt="ช่อดอกไม้จากลูกส่งหัวใจ" />
+          <span class="bouquet-caption" aria-hidden="true">FOR YOU, MOM ♡</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ควิซน่ารัก 3 ข้อ -->
+    <section class="scene scene-quiz" data-scene="4" aria-label="ควิซความทรงจำ">
+      <div class="scene-stickers" aria-hidden="true"><span>❔</span><span>🎀</span><span>💭</span></div>
+      <div class="scene-inner quiz-layout">
+        <div class="quiz-visual reveal">
+          <div class="quiz-planet"></div>
+          <img class="alien alien-quiz" src="assets/bouquet.svg" alt="ช่อดอกไม้จากลูกกำลังตั้งคำถาม" />
+          <div class="quiz-bubble">ไม่มีข้อผิด มีแต่ความรักครับ 💗</div>
+        </div>
+        <div class="quiz-card cute-card reveal delay-2">
+          <p class="eyebrow">MOM & SON • MINI QUIZ</p>
+          <div class="quiz-progress" aria-label="ความคืบหน้าควิซ"><span id="quiz-progress-bar"></span></div>
+          <p class="quiz-step" id="quiz-step">ข้อ 1 จาก 3</p>
+          <h2 class="quiz-question" id="quiz-question">เเม่รักโซนมากเเค่ไหน?</h2>
+          <div class="quiz-options" id="quiz-options"></div>
+          <p class="quiz-feedback" id="quiz-feedback" aria-live="polite"></p>
+          <button class="primary-btn next-btn quiz-next" id="quiz-next" type="button" hidden>ไปเปิดกล่องความรัก ✨</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- กล่องสุ่มคำชม + ปุ่มกอด + ตัวนับวัน -->
+    <section class="scene scene-cute-lab" data-scene="5" aria-label="กล่องความน่ารัก">
+      <div class="scene-stickers" aria-hidden="true"><span>🎁</span><span>🫶</span><span>🌷</span></div>
+      <div class="scene-inner cute-lab-layout">
+        <div class="compliment-card cute-card reveal">
+          <p class="eyebrow">A LITTLE BOX OF LOVE</p>
+          <div class="compliment-orb" aria-hidden="true"><span>💌</span></div>
+          <h2 class="big-thai compact-title">คำบอกรักถึงแม่</h2>
+          <p class="compliment-text" id="compliment-text">กดรับคำบอกรักจากลูกชายสุดหล่อได้เลย</p>
+          <button class="primary-btn" id="compliment-btn" type="button">เปิดคำบอกรัก 💌</button>
+          <div class="days-card" id="days-card" data-start-date="">
+            <span>♡</span>
+            <div><small>วันพิเศษของเรา</small><strong id="days-together">8 ตุลาคม • วันที่ลูกอยากให้แม่มีความสุขที่สุด</strong></div>
+          </div>
+        </div>
+        <div class="hug-zone reveal delay-2 cute-card" id="hug-zone">
+          <div class="hug-halo"></div>
+          <img class="alien alien-cuddle" id="hug-alien" src="assets/bouquet.svg" alt="ช่อดอกไม้จากลูกพร้อมให้กอด" />
+          <h3>กอดแม่ผ่านหน้าจอ 🫂</h3>
+          <p id="hug-message">ลูกส่งกอดอุ่น ๆ ให้แม่ครับ 💗</p>
+          <button class="ghost-btn hug-btn" id="hug-btn" type="button">รับกอดจากลูก 🫂</button>
+          <button class="primary-btn next-btn lab-next" type="button"> ไปดูรูป คนที่สวยที่สุดในโลก</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-4" data-scene="6" aria-label="หน้าความทรงจำ">
+      <div class="scene-stickers" aria-hidden="true"><span>📷</span><span>🌼</span><span>♡</span></div>
+      <div class="scene-inner memories-layout">
+        <div class="memory-copy">
+          <p class="eyebrow reveal">OUR LITTLE MEMORIES</p>
+          <h2 class="big-thai type-on-enter" data-text="อันนี้คือภาพ คนที่สวยที่สุด">ภาพความทรงจำกับแม่</h2>
+          <p class="memory-tip reveal delay-2">แตะรูปเพื่อดูเต็มจอ •  📷</p>
+          <div class="record-player reveal delay-3 cute-card">
+            <div class="record"><div class="record-label"><img src="assets/bouquet.svg" alt="" /></div></div>
+            <div class="tonearm"></div><div class="player-dot d1"></div><div class="player-dot d2"></div>
+          </div>
+        </div>
+        <div class="polaroid-cloud reveal delay-2">
+          <!-- ใส่รูปคุณแม่แทนภาพตัวอย่างได้ โดยแก้ src และ data-full ใน figure ทั้ง 4 -->
+          <figure class="polaroid p1 memory-item" tabindex="0" role="button" aria-label="ดูภาพความทรงจำตัวอย่างที่ 1" data-full="assets/IMG_1223.jpg" data-caption="ช่วงเวลาดี ๆ กับแม่">
+            <div class="photo-frame"><img class="memory-photo" loading="lazy" decoding="async" src="assets/IMG_1223.jpg" alt="ภาพตัวอย่างที่ 1: ช่วงเวลาดี ๆ กับแม่" /></div><figcaption>ช่วงเวลาดี ๆ กับแม่</figcaption>
+          </figure>
+          <figure class="polaroid p2 memory-item" tabindex="0" role="button" aria-label="ดูภาพความทรงจำตัวอย่างที่ 2" data-full="assets/IMG_1222.jpg" data-caption="รอยยิ้มของแม่">
+            <div class="photo-frame"><img class="memory-photo" loading="lazy" decoding="async" src="assets/IMG_1222.jpg" alt="ภาพตัวอย่างที่ 2: รอยยิ้มของแม่" /></div><figcaption>รอยยิ้มของแม่</figcaption>
+          </figure>
+          <figure class="polaroid p3 memory-item" tabindex="0" role="button" aria-label="ดูภาพความทรงจำตัวอย่างที่ 3" data-full="assets/IMG_1221.jpg" data-caption="วันที่เรามีความสุข">
+            <div class="photo-frame"><img class="memory-photo" loading="lazy" decoding="async" src="assets/IMG_1221.jpg" alt="ภาพตัวอย่างที่ 3: วันที่เรามีความสุข" /></div><figcaption>วันที่เรามีความสุข</figcaption>
+          </figure>
+          <figure class="polaroid p4 memory-item" tabindex="0" role="button" aria-label="ดูภาพความทรงจำตัวอย่างที่ 4" data-full="assets/IMG_1220.jpg" data-caption="ความทรงจำที่อยากเก็บไว้">
+            <div class="photo-frame"><img class="memory-photo" loading="lazy" decoding="async" src="assets/IMG_1220.jpg" alt="ภาพตัวอย่างที่ 4: ความทรงจำที่อยากเก็บไว้" /></div><figcaption>ความทรงจำที่อยากเก็บไว้</figcaption>
+          </figure>
+          
+          <button class="primary-btn next-btn memory-next" type="button">ไปหน้าสุดท้าย</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene scene-5" data-scene="7" aria-label="หน้าคำอวยพรสุดท้าย">
+      <div class="scene-stickers" aria-hidden="true"><span>🎂</span><span>🎀</span><span>✨</span></div>
+      <div class="scene-inner finale-layout">
+        <div class="gift-orbit reveal">
+          <div class="gift-box"><div class="gift-lid"></div><div class="gift-ribbon vertical"></div><div class="gift-ribbon horizontal"></div><div class="gift-bow"><i></i><i></i></div></div>
+          <img class="alien alien-finale" src="assets/bouquet.svg" alt="ช่อดอกไม้จากลูกมอบของขวัญ" />
+          <div class="spark s1">✦</div><div class="spark s2">✦</div><div class="spark s3">★</div>
+          <button class="gift-unlock-btn" id="gift-unlock-btn" type="button" aria-expanded="false" aria-controls="gift-message">แตะเปิดของขวัญพิเศษ 🎁</button>
+          <p class="gift-message" id="gift-message" role="status" hidden>ของขวัญชิ้นนี้คือความรักทั้งหมดของลูก ❤️ รักแม่นะครับ!</p>
+        </div>
+        <article class="letter-card reveal delay-2 cute-card" id="birthday-card">
+          <div class="wax-seal" aria-hidden="true">💗</div>
+          <p class="letter-kicker">A LETTER FROM YOUR HANDSOME SON</p>
+          <h2>Happy Birthday Mom! 💐</h2>
+          <p>
+            สุขสันต์วันเกิดนะแม่ ❤️
+            โซนรักเเม่มากๆนะ ถึงจะดื้อบ้าง มีเรื่องให้เครียดหรือยังไง เเต่โซนก็ อยากให้เเม่อยู่กับโซนไปนานๆเลยนะ
+            วันเกิดปีนี้โซนขอให้เเม่มีความสุขมากๆ ไม่เครียด มีเงินทองไหลเข้ามาเยอะๆ มีความสุขกับทุกเรื่องที่ทำ
+            ปีนี้โซนไม่มีอะไรให้ มีเเต่ ความรักจากโซน
+            และขอให้ทุกวันของแม่เต็มไปด้วยเรื่องดี ๆ รักแม่มากนะครับ 💗
+          </p>
+          <p class="signature">ด้วยรักทั้งหมดจากลูกชายคนนี้<br /><strong>— จากลูกชายสุดหล่อ 💗</strong></p>
+          <div class="final-actions">
+            <button class="primary-btn" id="celebrate-btn" type="button">ฉลองอีกครั้ง 🎉</button>
+            <button class="ghost-btn save-card-btn" id="save-card-btn" type="button"><span aria-hidden="true">📸</span><span id="save-card-text">บันทึกการ์ดเป็นรูป</span></button>
+            <button class="ghost-btn" id="restart-btn" type="button">เริ่มใหม่</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <nav class="scene-nav" aria-label="เลือกหน้า">
+    <button class="nav-dot is-active" data-go="0" aria-label="หน้า 1 คำอวยพรเริ่มต้น" title="คำอวยพรเริ่มต้น" aria-current="page"></button>
+    <button class="nav-dot" data-go="1" aria-label="หน้า 2 รักแม่แค่ไหน" title="รักแม่แค่ไหน"></button>
+    <button class="nav-dot" data-go="2" aria-label="หน้า 3 ขอบคุณแม่" title="ขอบคุณแม่"></button>
+    <button class="nav-dot" data-go="3" aria-label="หน้า 4 คำอวยพร 4 ข้อ" title="คำอวยพร 4 ข้อ"></button>
+    <button class="nav-dot" data-go="4" aria-label="หน้า 5 เกมควิซ" title="เกมควิซ"></button>
+    <button class="nav-dot" data-go="5" aria-label="หน้า 6 กล่องคำบอกรัก" title="กล่องคำบอกรัก"></button>
+    <button class="nav-dot" data-go="6" aria-label="หน้า 7 อัลบั้มความทรงจำ" title="อัลบั้มความทรงจำ"></button>
+    <button class="nav-dot" data-go="7" aria-label="หน้า 8 จดหมายจากลูก" title="จดหมายจากลูก"></button>
+  </nav>
+
+  <div class="scene-counter" id="scene-counter" aria-hidden="true"><span id="scene-current">01</span><i></i><b>08</b></div>
+  <button class="music-status" id="music-status" type="button" disabled aria-label="เปิดหรือปิดเพลง">
+    <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+    <span class="music-copy"><strong id="music-status-text">แตะเพื่อเปิดเพลง ♡</strong><small>เพลงพิเศษสำหรับแม่ ♫</small></span>
+  </button>
+  <div class="cute-toast" id="cute-toast" role="status" aria-live="polite"></div>
+  <div class="swipe-hint" aria-hidden="true">ปัดซ้าย–ขวา หรือกดปุ่มเพื่อเปลี่ยนหน้า</div>
+
+  <!-- Lightbox รูปความทรงจำ -->
+  <div class="memory-lightbox" id="memory-lightbox" role="dialog" aria-modal="true" aria-label="รูปความทรงจำ" hidden>
+    <button class="modal-close" id="lightbox-close" type="button" aria-label="ปิดรูป">×</button>
+    <div class="lightbox-card"><img id="lightbox-image" src="" alt="" /><p id="lightbox-caption"></p></div>
+  </div>
+
+  <!-- ข้อความลับ -->
+  <div class="secret-modal" id="secret-modal" role="dialog" aria-modal="true" aria-labelledby="secret-title" hidden>
+    <div class="secret-card">
+      <button class="modal-close" id="secret-close" type="button" aria-label="ปิดข้อความลับ">×</button>
+      <div class="secret-sparkles" aria-hidden="true">✦ ♡ ✨ 💗 ✦</div>
+      <p class="eyebrow">SECRET MESSAGE UNLOCKED</p>
+      <h2 id="secret-title">เจอข้อความลับแล้วว</h2>
+      <p>แม่รู้ไหมครับ ว่าลูกตั้งใจทำเว็บนี้เพื่อให้แม่ยิ้มได้สักวันหนึ่ง ขอบคุณสำหรับทุกอย่างที่แม่ทำให้ลูกนะครับ ลูกอาจจะไม่เก่งเรื่องพูดหวาน ๆ แต่รักแม่มากจริง ๆ 💗</p>
+      <button class="primary-btn" id="secret-ok" type="button">เก็บข้อความนี้ไว้ในใจ</button>
+    </div>
+  </div>
+
+  <!-- วงล้อข้อความลับ: เปิดเมื่อเก็บหัวใจครบ 21 ดวง -->
+  <div class="heart-reward-modal prize-wheel-modal" id="heart-reward-modal" role="dialog" aria-modal="true" aria-labelledby="heart-reward-title" hidden>
+    <div class="heart-reward-stars wheel-space-stars" aria-hidden="true">
+      <span>✦</span><span>💗</span><span>✨</span><span>♡</span><span>✦</span><span>🌼</span><span>💫</span>
+    </div>
+
+    <article class="prize-wheel-card">
+      <button class="modal-close prize-wheel-close" id="heart-reward-close" type="button" aria-label="ปิดวงล้อ">×</button>
+
+      <header class="prize-wheel-header">
+        <div class="wheel-unlock-badge"><span>21</span><small>HEARTS</small></div>
+        <div>
+          <p class="prize-wheel-kicker">WISHES FOR MY MOM</p>
+          <h2 id="heart-reward-title">วงล้อคำอวยพรให้แม่</h2>
+          <p>เก็บหัวใจครบแล้ว มาเปิดคำอวยพรพิเศษกัน 🎁</p>
+        </div>
+      </header>
+
+      <div class="prize-wheel-layout">
+        <section class="wheel-stage" aria-label="วงล้อสุ่มข้อความ 7 ช่อง">
+          <div class="wheel-glow-ring" aria-hidden="true"></div>
+          <div class="wheel-pointer" aria-hidden="true"><span></span></div>
+
+          <div class="message-wheel" id="message-wheel">
+            <div class="wheel-labels" id="wheel-labels" aria-hidden="true"></div>
+            <div class="wheel-center" aria-hidden="true">
+              <span>🌷</span>
+              <small>LUCKY</small>
+            </div>
+          </div>
+
+          <div class="wheel-particles" id="wheel-particles" aria-hidden="true"></div>
+        </section>
+
+        <section class="wheel-control-panel">
+          <img class="wheel-alien" src="assets/bouquet.svg" alt="ช่อดอกไม้จากลูกกำลังถือหัวใจ" />
+
+          <div class="wheel-ready-copy" id="wheel-ready-copy">
+            <p class="wheel-mini-label">A SPECIAL WISH FOR MOM</p>
+            <h3>ถ้าพร้อมเเล้วก็กดเลยย</h3>
+            <p>คำอวยพรใบไหนก็ส่งให้แม่ด้วยหัวใจลูกครับ</p>
+          </div>
+
+          <div class="wheel-result" id="wheel-result" hidden aria-live="polite">
+            <p class="wheel-result-eyebrow" id="wheel-result-eyebrow">YOUR BIRTHDAY WISH</p>
+            <div class="wheel-result-icon" id="wheel-result-icon">💗</div>
+            <blockquote id="wheel-result-message"></blockquote>
+            <small>ทุกคำอวยพรนี้ ลูกตั้งใจมอบให้แม่ ✨</small>
+          </div>
+
+          <button class="primary-btn wheel-spin-button" id="wheel-spin-button" type="button">
+            <span class="wheel-spin-icon">✦</span>
+            <span id="wheel-spin-text">หมุนวงล้อข้อความ</span>
+            <span class="wheel-spin-arrow">➜</span>
+          </button>
+
+          <p class="wheel-status" id="wheel-status" role="status" aria-live="polite">ครบ 21/21 แล้ว ปลดล็อกวงล้อสำเร็จ</p>
+        </section>
+      </div>
+    </article>
+  </div>
+
+  <!-- บนมือถือให้กดบันทึกภาพเองจากหน้าต่างแสดงตัวอย่าง (รองรับเบราว์เซอร์ที่บล็อกการดาวน์โหลดอัตโนมัติ) -->
+  <div id="card-preview" class="card-preview-modal" role="dialog" aria-modal="true" aria-labelledby="card-preview-heading" hidden>
+    <div class="card-preview-panel">
+      <button type="button" id="card-preview-close" class="card-preview-close" aria-label="ปิดภาพตัวอย่าง">×</button>
+      <h2 id="card-preview-heading">การ์ดของแม่พร้อมแล้ว 💗</h2>
+      <p>กดปุ่มบันทึกภาพ หรือแตะรูปค้างเพื่อเก็บไว้ในเครื่อง</p>
+      <img id="card-preview-image" src="" alt="ตัวอย่างการ์ดอวยพรวันเกิดสำหรับแม่" />
+      <a id="card-preview-download" class="primary-btn card-preview-download" download="happy-birthday-mom-card.png">บันทึกภาพการ์ด 📸</a>
+    </div>
+  </div>
+
+  <!-- เพลงเต็มสำหรับหน้านับถอยหลัง และเพลงเริ่ม 3:15 สำหรับหน้าเซอร์ไพรส์ -->
+  <audio id="waiting-music" src="assets/waiting-song.mp3" preload="metadata" loop playsinline></audio>
+  <audio id="memory-music" src="assets/mom-song.mp3" preload="metadata" loop playsinline></audio>
+  <script src="script.js?v=mom-v7-waiting-music"></script>
+  <script src="waiting-music.js?v=1.0.0"></script>
+  <script src="premium-v5.js?v=5.0.0" defer></script>
+</body>
+</html>

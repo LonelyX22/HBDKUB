@@ -1,0 +1,227 @@
+/*
+ * HAPPY BIRTHDAY MOM V5 / Luxury Birthday Experience
+ * Loaded after legacy theme and V4 fixes. Feature-specific styles live here;
+ * the 8-scene behavior, quiz, collectible hearts and export remain intact.
+ */
+:root {
+  --lux-ivory: #fff9f3;
+  --lux-paper: #fffdf9;
+  --lux-rose: #bb8190;
+  --lux-rose-deep: #986779;
+  --lux-ink: #694b53;
+  --lux-gold: #d5b88b;
+  --lux-border: rgba(195, 151, 150, .30);
+  --lux-shadow: 0 14px 38px rgba(106, 68, 76, .11);
+  --lux-ease: cubic-bezier(.2,.7,.25,1);
+  --header-safe: 140px;
+  --footer-safe: 108px;
+}
+html,body { scroll-behavior:auto; }
+body { background: var(--lux-ivory); color:var(--lux-ink); }
+body::before {
+  background:radial-gradient(ellipse at 5% 14%,rgba(232,189,197,.30),transparent 36%),
+    radial-gradient(ellipse at 95% 86%,rgba(205,217,189,.26),transparent 34%),
+    linear-gradient(142deg,#fffaf4 3%,#fff0ed 49%,#fffaf1 100%);
+}
+body::after { opacity:.19; background-size:23px 23px; }
+.scene { filter:none !important; transform:translate3d(12px,0,0); transition:opacity .36s ease,transform .42s var(--lux-ease),visibility 0s linear .42s; }
+.scene.is-active { transform:translate3d(0,0,0); transition-delay:0s; }
+.scene.is-leaving { transform:translate3d(-12px,0,0); }
+.scene::before { border-radius:28px; inset:12px; border-color:rgba(199,157,148,.26); }
+.scene .scene-inner { isolation:isolate; }
+.scene-stickers {opacity:.35;pointer-events:none;}
+.scene-stickers span {filter:none !important;}
+.eyebrow,.letter-kicker {color:#a67682;letter-spacing:.16em;}
+.scene .big-thai,.scene .question-title,.scene .thai-title,.scene .quiz-question,
+.scene .compact-title, .letter-card h2 {
+  color:#805969; text-shadow:none !important; -webkit-text-stroke:0 transparent !important;
+  letter-spacing:0 !important; overflow-wrap:anywhere;
+  font-family:'Kanit','Noto Sans Thai',Tahoma,sans-serif;
+  line-height:1.48;
+}
+.scene .big-thai {font-size:clamp(1.85rem,3.4vw,3.5rem); font-weight:600;}
+.scene .subtitle,.scene .question-subtitle,.scene .memory-tip,.scene .tiny-note,
+.scene .quiz-feedback { color:#896d71;line-height:1.75; }
+.scene .mega-title {color:#af7b8b;font-weight:700;line-height:1.24;text-shadow:none!important;}
+/* Shared material styling */
+.cute-card,.question-copy,.alien-card,.quiz-card,.compliment-card,.hug-zone,
+.letter-card,.record-player {
+  border:1px solid var(--lux-border);
+  background:linear-gradient(145deg,rgba(255,253,249,.96),rgba(255,244,239,.94));
+  box-shadow:var(--lux-shadow);
+}
+.question-copy,.quiz-card,.compliment-card,.hug-zone,.letter-card {border-radius:26px;}
+.primary-btn,.ghost-btn {transition:transform .22s var(--lux-ease),box-shadow .22s ease,background-color .22s ease;}
+.primary-btn {
+  background:linear-gradient(125deg,#c993a0,#b57a8b 57%,#9f6d7c) !important;
+  color:#fffdfb !important;
+  box-shadow:0 4px 0 #986779,0 11px 22px rgba(126,78,90,.16) !important;
+  border:1px solid rgba(255,255,255,.3);
+}
+.primary-btn:hover {transform:translateY(-2px);box-shadow:0 6px 0 #986779,0 15px 25px rgba(126,78,90,.2) !important;}
+.primary-btn:active {transform:translateY(2px);box-shadow:0 2px 0 #986779,0 5px 9px rgba(126,78,90,.13) !important;}
+.ghost-btn {background:var(--lux-paper);color:#8e6270;border-color:#dec5c5;}
+.ghost-btn:hover {background:#fff0ee;}
+.scene-nav,.sound-toggle,.music-status,.heart-hunt-counter {background:#fffcf8;border:1px solid #e9d3cc;box-shadow:0 9px 23px rgba(123,86,89,.10);backdrop-filter:none !important;}
+.nav-dot.is-active {background:#b87d8e;box-shadow:0 0 0 3px rgba(194,136,153,.12);}
+.scene-nav {padding:10px 14px;gap:8px;z-index:100;}
+.scene-counter,.sound-toggle,.music-status,.heart-hunt-counter {z-index:80;}
+/* HUD stays in its reserved strip, not over titles. */
+.scene-counter {top:19px;left:25px;}
+.sound-toggle {top:14px;right:21px;}
+.heart-hunt-counter {top:60px;left:22px;}
+.music-status {top:60px;right:21px;}
+/* Scene 4: completely remove the large original animated emoji heart behind
+   the bouquet. It caused the cropped pink half-circle in the user screenshot. */
+.scene-3 .heart-core {
+  position:relative;overflow:hidden;isolation:isolate;
+  min-height:300px; height:310px;
+  border-radius:27px;border:1px solid #efd8d1;
+  background:radial-gradient(circle at 50% 48%,#fffdf8 0%,#fff6f1 52%,#fbe8e7 100%);
+  box-shadow:var(--lux-shadow);
+}
+.scene-3 .heart-gem,.scene-3 .pulse-ring {display:none !important;}
+.scene-3 .heart-core::before {
+  content:"";position:absolute;width:min(78%,315px);aspect-ratio:1;border-radius:50%;
+  left:50%;top:42%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle at 50% 35%,#fff8f4,#f9e1e0 70%,#f5d9da);
+  border:1px solid rgba(223,180,181,.32);
+}
+.scene-3 .heart-core::after {content:'✦';position:absolute;top:11%;right:12%;color:#d4ad89;font-size:1.65rem;opacity:.65;}
+.scene-3 .alien-hug {
+  position:absolute;display:block;width:min(74%,285px);max-height:245px; height:auto;
+  right:auto !important;left:50%;bottom:16px !important;
+  transform:translateX(-50%) !important;animation:none!important;
+  object-fit:contain;filter:drop-shadow(0 9px 10px rgba(156,98,110,.12)) !important;
+  z-index:2;
+}
+.scene-3 .bouquet-caption {
+  position:absolute;z-index:4;left:16px;top:15px;color:#bd91a0;
+  font-size:.64rem;letter-spacing:.14em;font-weight:600;
+}
+/* Four wishes: use a consistent numbered list, never force a one-screen height. */
+.scene-3 .promise-copy {min-width:0;}
+.scene-3 .promise-list {gap:12px;margin:18px auto 22px;max-width:540px;}
+.scene-3 .promise-list div {
+  background:rgba(255,254,251,.96);border:1px solid #f0deda;
+  box-shadow:0 5px 13px rgba(116,71,80,.05);
+  color:#785b61;line-height:1.6;border-radius:16px;
+  padding:12px 14px;min-height:54px;
+}
+.scene-3 .promise-list span {
+  color:#fff;font-size:.78rem;flex:0 0 34px;
+  background:linear-gradient(140deg,#d4a0ac,#b98091);box-shadow:none;
+}
+/* Elegant memory cards with consistent captions, without per-frame layout work. */
+.scene-4 .polaroid-cloud {gap:22px 16px;}
+.scene-4 .polaroid {border:1px solid #efdfd5;background:#fffdf9;box-shadow:0 10px 24px rgba(119,77,88,.13);}
+.scene-4 .polaroid figcaption {font-family:'Kanit',Tahoma,sans-serif;color:#82656b;font-weight:500;}
+.scene-4 .polaroid:hover {box-shadow:0 14px 25px rgba(119,77,88,.16);}
+/* A lightweight interactive gift scene. The existing letter and export are unchanged. */
+.scene-5 .gift-orbit {overflow:visible;}
+.scene-5 .gift-box {animation:none;transform:rotate(-6deg);transition:transform .55s var(--lux-ease);}
+.scene-5 .gift-lid {transform-origin:10% 90%;transition:transform .65s var(--lux-ease);}
+.scene-5 .gift-orbit.gift-opened .gift-box {transform:rotate(-3deg) translateY(5px);}
+.scene-5 .gift-orbit.gift-opened .gift-lid {transform:translateY(-17px) rotate(-15deg);}
+.gift-unlock-btn {
+  position:absolute;z-index:18;left:50%;bottom:0;transform:translateX(-50%);
+  border:1px solid #dcb5bd;border-radius:999px;background:#fffaf6;color:#946477;
+  padding:10px 18px;white-space:nowrap;cursor:pointer;font:500 .88rem 'Kanit',Tahoma,sans-serif;
+  box-shadow:0 6px 17px rgba(110,73,82,.13);
+}
+.gift-unlock-btn:hover {background:#fff1ef;}
+.gift-unlock-btn:focus-visible {outline:3px solid #9d6275;outline-offset:3px;}
+.gift-message {
+  position:absolute;left:50%;bottom:49px;z-index:19;transform:translateX(-50%);
+  width:min(300px,90%);padding:11px 16px;line-height:1.6;text-align:center;
+  border:1px solid #ead3d2;border-radius:15px;background:#fffdf9;
+  color:#785d66;box-shadow:0 12px 29px rgba(103,64,74,.14);
+  font-size:.85rem;
+}
+.gift-message[hidden]{display:none!important;}
+.scene-5 .letter-card {transform:none;border:1px solid #ead0cb;}
+.scene-5 .letter-card p {line-height:1.85;}
+.scene-5 .final-actions button {min-height:44px;}
+/* Power: avoid expensive always-on animations behind the content. */
+.scene .record {animation-play-state:paused !important;}
+.scene .spark,.scene .question-spark {animation:none!important;}
+.scene .reveal {will-change:auto;}
+.scene .cute-card,.scene .alien {backdrop-filter:none!important;}
+@media(max-width:860px) {
+  :root {--header-safe:142px;--footer-safe:116px;}
+  .scene {display:block;overflow-x:hidden;overflow-y:auto;padding:0 16px var(--footer-safe);overscroll-behavior-y:contain;}
+  .scene .scene-inner {width:min(560px,100%);height:auto;min-height:0;margin:0 auto;padding-top:var(--header-safe);padding-bottom:25px;}
+  .scene .hero-layout,.scene .question-layout,.scene .split-layout,.scene .promise-layout,
+  .scene .quiz-layout,.scene .cute-lab-layout,.scene .memories-layout,.scene .finale-layout {
+    display:flex;flex-direction:column;align-items:stretch;gap:22px;
+  }
+  .scene .big-thai {font-size:clamp(1.58rem,6.6vw,2.15rem);line-height:1.5;}
+  .scene .subtitle,.scene .question-subtitle,.scene .memory-tip {font-size:clamp(.85rem,3.1vw,.98rem);}
+  .scene-counter {top:13px;left:20px;}
+  .sound-toggle {top:12px;right:14px;}
+  .heart-hunt-counter {top:56px;left:12px;max-width:39vw;}
+  .music-status {top:56px;right:12px;max-width:46vw;min-height:34px;}
+  .scene-3 .heart-core {width:100%;min-height:270px;height:280px;margin:0 auto;}
+  .scene-3 .alien-hug {max-height:225px;bottom:12px!important;}
+  .scene-3 .promise-copy {margin:0;}
+  .scene-3 .promise-list div {padding:11px 12px;}
+  .scene-4 .memories-layout {padding-top:var(--header-safe) !important;}
+  .scene-4 .memory-copy {padding-top:0;}
+  .scene-4 .polaroid-cloud {grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 12px;}
+  .scene-4 .polaroid-cloud .polaroid {width:100%;min-width:0;transform:none!important;}
+  .scene-5 .finale-layout {padding-top:var(--header-safe) !important;gap:14px;}
+  .scene-5 .gift-orbit {min-height:228px;height:228px;overflow:visible;}
+  .scene-5 .alien-finale {width:min(170px,48vw);height:auto;max-height:180px;right:6%;top:0;}
+  .scene-5 .gift-box {left:10%;top:32px;bottom:auto;width:118px;height:99px;}
+  .scene-5 .gift-unlock-btn {bottom:2px;}
+  .scene-5 .gift-message {bottom:48px;}
+  .scene-5 .letter-card {max-height:none;overflow:visible;}
+  .scene-5 .final-actions {margin-top:20px;padding-bottom:0;}
+  .scene-nav {bottom:max(12px,env(safe-area-inset-bottom));}
+}
+@media(max-width:390px) {
+  :root {--header-safe:136px;--footer-safe:110px;}
+  .scene {padding-left:12px;padding-right:12px;}
+  .scene-counter {left:16px;}
+  .music-status {right:9px;max-width:44vw;}
+  .heart-hunt-counter {left:9px;max-width:40vw;}
+  .scene-3 .promise-list div {font-size:.85rem;}
+  .scene-5 .gift-orbit {min-height:220px;height:220px;}
+}
+@media(min-width:861px) {
+  .scene {overflow-x:hidden;overflow-y:auto;}
+  .scene .scene-inner {height:auto;min-height:min(670px,calc(100dvh - 150px));margin:auto;}
+  .scene-3 .heart-core {min-height:400px;height:400px;}
+  .scene-3 .alien-hug {max-height:280px;width:min(70%,350px);}
+  .scene-5 .gift-orbit {min-height:425px;}
+  .scene-5 .gift-unlock-btn {bottom:15px;}
+  .scene-5 .gift-message {bottom:69px;}
+  .scene-5 .letter-card {max-height:none;overflow:visible;}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after {scroll-behavior:auto!important;}
+  .scene,.scene.is-active,.scene.is-leaving {transition:none!important;}
+  .gift-box,.gift-lid,.primary-btn,.ghost-btn {transition:none!important;}
+  .scene .reveal {animation:none!important;opacity:1!important;transform:none!important;}
+}
+
+/* Keep all mobile collectible hearts within the viewport's horizontal hit area. */
+@media(min-width:391px) and (max-width:860px) {
+  .scene > .hidden-heart:nth-last-child(3),
+  .scene > .hidden-heart:nth-last-child(1) {left:10px !important;}
+  .scene > .hidden-heart:nth-last-child(2) {right:10px !important;}
+}
+
+/* Gallery collectibles occupy the free margins above the photographs.
+   Stable data IDs prevent positions jumping when earlier hearts are removed. */
+@media(max-width:860px) {
+  .scene[data-scene="6"] > .hidden-heart[data-heart-id="scene-6-heart-0"] {
+    top:22%!important;left:6px!important;right:auto!important;bottom:auto!important;
+  }
+  .scene[data-scene="6"] > .hidden-heart[data-heart-id="scene-6-heart-1"] {
+    top:33%!important;right:6px!important;left:auto!important;bottom:auto!important;
+  }
+  .scene[data-scene="6"] > .hidden-heart[data-heart-id="scene-6-heart-2"] {
+    top:44%!important;left:6px!important;right:auto!important;bottom:auto!important;
+  }
+}

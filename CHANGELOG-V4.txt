@@ -1,0 +1,36 @@
+Happy Birthday Mom — V4 (Bug Fix & Responsive Polish)
+8 October 2026
+
+Changed
+- Thai heading shadow/glow fixed (legacy mobileTitleGlow green shadow removed)
+- All 8 scenes receive mobile-friendly flow layouts; long scenes scroll vertically
+- Fixed counters, music status, nav and toasts no longer overlap page titles
+- Heart hunt hitboxes moved to edges on mobile, preserving all 21 hearts and tap targets
+- Primary buttons now win click/touch over hidden heart overlay
+- Gallery cards retain tappable full-view behavior
+- Final letter Save Card button and mobile PNG preview usable by touch
+- Quiz, compliment, hug, and reward wheel preserved
+- Chrome favicon.ico fallback included, versioned CSS/JS URLs to clear stale cache
+- Legacy neon-green button shadows removed; rose/cream palette retained
+
+Files
+  index.html       Entry page (opens after 08 October 2026 00:00 Thailand time)
+  style.css        Original baseline UI/animations
+  mom-theme.css    Warm HBD Mom theme
+  layout-fixes.css V4 fixes (must keep)
+  script.js        Original website features + previous updates
+  favicon.svg / favicon.ico
+  assets/*.svg     Placeholder bouquet and four gallery images
+  README-TH.txt    Installation and configuration
+
+Tested
+- Chromium desktop 1280x800, mobile emulation 360x780 and 440x956.
+- 440x956 also tested with reduced-motion on and off.
+- 8 scenes, navigation, quiz (3 questions), compliments/hug, collecting 21 hearts,
+  reward-wheel spin, lightbox, save card/mobile preview and desktop download.
+- No JavaScript exceptions in those test runs.
+
+Important
+- Mobile test uses Chromium emulation, not a physical iPhone or Safari.
+- MP3 music is not embedded yet; waiting for the user-provided audio file.
+- Password 0810 is playful, not true security; don't upload private photos unless intended for sharing.

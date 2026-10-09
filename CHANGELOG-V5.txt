@@ -1,0 +1,23 @@
+HAPPY BIRTHDAY MOM — V5 / LUXURY BIRTHDAY EXPERIENCE
+
+BASE: V4 full source archive (preserved all eight scenes and gameplay)
+
+ROOT-CAUSE FIXES
+1. Remove legacy heart-gem and pulse-ring causing a pink shape behind the vase in scene 4.
+2. Update reserved HUD spacing, 360/440 responsive typography and button interaction layers.
+3. Do not switch scenes when swiping vertically to read content.
+4. Wait for envelope reveal before exposing the first scene (avoids residual intro text).
+5. Stop automatic scene-change toasts from covering text and cards.
+
+NEW VISUAL EXPERIENCE
+- New premium-v5.css design layer: warm ivory / dusty rose / muted champagne palette, consistent cards, typography and buttons.
+- Lightweight fade/translate scene transitions; no blur or continuous canvas rendering.
+- Clickable gift surprise in scene 8, implemented in premium-v5.js, respects reduced-motion.
+- Display bouquet in a clean floral frame without the old overlapping icon.
+
+RETAINED: Password 0810, release date October 8, 2026 Asia/Bangkok, intro envelope,
+quiz, compliment box, hugs, 4 sample polaroids, 21 secret hearts, prize wheel,
+canvas PNG birthday card export, music slot awaiting a supplied file.
+
+QA: Chromium with inline assets (browser environment blocks local/localhost URLs).
+Actual iPhone Safari not tested. No claim of universal 60 FPS or zero bugs on all devices.

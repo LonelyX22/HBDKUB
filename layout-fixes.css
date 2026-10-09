@@ -1,0 +1,204 @@
+/* HBD Mom V4 — Root-cause layout and typography repair.
+   Loaded after both legacy style sheets to keep their feature logic intact. */
+:root { --header-safe: 136px; --footer-safe: 100px; }
+
+/* The legacy mobileTitleGlow keyframe paints an 8px *green* displaced copy
+   of every heading. Explicitly remove it; keep lightweight opacity/motion. */
+.big-thai, .question-title, .mega-title, .thai-title,
+.scene h1, .scene h2, .letter-card h2,
+.is-active .type-on-enter {
+  text-shadow: none !important;
+  -webkit-text-stroke: 0 transparent !important;
+}
+.big-thai, .question-title, .thai-title, .scene h2 {
+  font-family: 'Kanit', 'Noto Sans Thai', Tahoma, sans-serif;
+  letter-spacing: normal !important;
+  word-break: normal;
+  overflow-wrap: break-word;
+  line-height: 1.43;
+}
+.is-active .type-on-enter.thai-title-animated {
+  animation: v3ThaiHeading .56s cubic-bezier(.22,.8,.25,1) both !important;
+}
+
+/* Keep overlays outside the actual reading area on narrow screens. */
+@media (max-width: 860px) {
+  html, body { height:100%; }
+  .scene {
+    display:block;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior-y:contain;
+    -webkit-overflow-scrolling:touch;
+    padding: 0 18px var(--footer-safe);
+  }
+  .scene-inner {
+    width:min(580px,100%);
+    height:auto;
+    min-height:0;
+    margin:0 auto;
+    padding-top:var(--header-safe);
+    padding-bottom:22px;
+  }
+  /* One content flow: no legacy fixed-height rows or absolute figures. */
+  .hero-layout,.question-layout,.split-layout,.promise-layout,
+  .quiz-layout,.cute-lab-layout,.memories-layout,.finale-layout {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:20px;
+  }
+  .hero-copy,.question-copy,.copy-panel,.promise-copy,.memory-copy {
+    width:100%; max-width:100%; min-width:0;
+    position:relative;
+    text-align:center;
+    margin:0 auto;
+  }
+  .scene .big-thai {
+    margin:0 0 12px;
+    font-size:clamp(1.65rem,6.4vw,2.4rem);
+    line-height:1.48;
+  }
+  .scene .subtitle,.scene .question-subtitle,.scene .memory-tip {
+    line-height:1.7;
+    margin-top:6px;
+  }
+  .hero-visual,.question-visual,.alien-card,.heart-core,.quiz-visual,.gift-orbit {
+    width:100%; min-height:0; height:auto;
+    flex-shrink:0;
+  }
+  .hero-visual,.question-visual {min-height:210px;height:245px;}
+  .hero-visual .alien,.question-visual .alien {max-width:245px;max-height:230px;width:66vw;}
+  .alien-card {min-height:240px;height:260px;}
+  .alien-wave {width:min(270px,70vw);max-height:230px;}
+  .heart-core {min-height:240px;height:270px;}
+  .alien-hug {width:min(260px,72vw);max-height:260px;}
+  .quiz-visual {height:180px;min-height:180px;}
+  .alien-quiz {width:min(180px,53vw);max-height:180px;}
+  .quiz-planet {width:min(180px,55vw);}
+  .quiz-bubble {font-size:.76rem;padding:8px 12px;max-width:170px;}
+  .quiz-card,.question-copy,.compliment-card,.hug-zone {
+    max-width:100%; width:100%; border-radius:26px;
+  }
+  .compliment-card {min-height:0;padding:24px 20px;}
+  .hug-zone {min-height:360px;padding:20px;}
+  .alien-cuddle {width:min(250px,65vw);max-height:210px;}
+  .compliment-orb {width:96px;height:96px;}
+  .scene-3 .promise-list {margin:12px 0 20px;}
+  .scene-3 .promise-list div {text-align:left;padding:11px 13px;}
+  .scene-3 .promise-list span {flex:0 0 34px;}
+  /* All copy is below the HUD, including the promise and the memory heading. */
+  .scene-4 .memories-layout,
+  .scene-5 .finale-layout {padding-top:var(--header-safe) !important;}
+  .scene-4 .memory-copy .big-thai {font-size:clamp(1.65rem,6.3vw,2.35rem);}
+  .scene-4 .record-player {width:min(260px,76vw);margin:12px auto 0;}
+  .scene-4 .polaroid-cloud {width:100%;gap:20px 12px;margin:0 auto;}
+  .scene-4 .polaroid-cloud .polaroid {min-width:0;width:100%;}
+  .scene-4 .memory-next {margin:8px auto 0;}
+  .scene-5 .gift-orbit {height:180px;min-height:180px;}
+  .scene-5 .alien-finale {max-width:210px;max-height:185px;}
+  .scene-5 .letter-card {max-height:none;overflow:visible;min-width:0;}
+  .scene-5 .letter-card h2 {font-size:clamp(1.4rem,5vw,2rem);}
+  .scene-5 .final-actions {padding-bottom:0;}
+  /* Clear the top HUD; keep all controls accessible. */
+  .scene-counter {top:12px;left:17px;}
+  .music-status {top:55px;right:12px;max-width:45vw;min-height:34px;}
+  .heart-hunt-counter {top:55px;left:12px;max-width:40vw;}
+  .scene-nav {bottom:max(12px,env(safe-area-inset-bottom));}
+  .secret-heart {bottom:max(70px,calc(env(safe-area-inset-bottom) + 70px));}
+}
+@media (max-width: 390px) {
+  :root {--header-safe:132px;}
+  .scene {padding-left:12px;padding-right:12px;}
+  .scene .big-thai {font-size:clamp(1.5rem,6.2vw,2rem);}
+  .question-copy {padding:22px 14px;}
+  .heart-hunt-counter {left:8px;}
+  .music-status {right:8px;}
+}
+@media (min-width:861px) {
+  /* A fluid desktop layout instead of a hard 690px-tall canvas.
+     Short desktop windows can now scroll to every button. */
+  .scene {overflow:auto;}
+  .scene-inner {height:auto;min-height:min(690px,calc(100dvh - 150px));margin:auto;}
+  .scene h2.big-thai {font-size:clamp(2rem,3.8vw,3.6rem);}
+  .scene-4 .memory-copy .eyebrow {padding-left:0;}
+  .scene-4 .memory-copy {padding-top:65px;}
+}
+@media (prefers-reduced-motion:reduce) {
+  .is-active .type-on-enter.thai-title-animated {animation:none !important;opacity:1;transform:none;}
+}
+
+/* Toast feedback must never cover a page title or the interactive heading. */
+.cute-toast, .heart-find-toast {
+  top:auto !important;
+  bottom:max(104px,calc(env(safe-area-inset-bottom) + 100px));
+  max-width:min(360px,calc(100vw - 42px));
+  text-align:center;
+  line-height:1.5;
+}
+@media(max-width:860px) {
+  .cute-toast, .heart-find-toast {bottom:max(104px,calc(env(safe-area-inset-bottom) + 104px));}
+}
+
+/* Hidden-heart game used z-index:14 above every CTA. Keep the 21 collectible
+   hearts, but ensure real controls always win the browser hit test. */
+.scene > .hidden-heart {z-index:12;}
+.scene-inner button,
+.scene-inner .memory-item,
+.scene-inner a,
+.scene-inner input {position:relative;z-index:16;}
+
+/* Scene-inner itself must not shield collectibles when it is transparent.
+   Controls inside it still get pointer events and paint above any heart. */
+@media(max-width:860px) {
+  .scene-inner {z-index:20;pointer-events:none;}
+  .scene-inner button,.scene-inner a,.scene-inner input,
+  .scene-inner .memory-item,.scene-inner .memory-item * {pointer-events:auto;}
+  .scene > .hidden-heart {z-index:12; width:40px;height:40px;}
+  .scene > .hidden-heart:nth-last-child(3) {top:26% !important;left:12px !important;right:auto !important;bottom:auto !important;}
+  .scene > .hidden-heart:nth-last-child(2) {top:53% !important;right:12px !important;left:auto !important;bottom:auto !important;}
+  .scene > .hidden-heart:nth-last-child(1) {top:80% !important;left:12px !important;right:auto !important;bottom:auto !important;}
+}
+
+/* Remove leftover neon-green button accents from the original space theme. */
+.primary-btn {
+  color:#fffaf7 !important;
+  background:linear-gradient(135deg,#d7a0aa 0%,#c4899a 56%,#ab7184 100%) !important;
+  box-shadow:0 6px 0 #9f6a7d,0 12px 24px rgba(141,83,103,.18) !important;
+}
+.primary-btn::before {color:#fff6f2 !important;}
+.primary-btn:active {box-shadow:0 2px 0 #9f6a7d,0 5px 12px rgba(141,83,103,.14) !important;}
+.primary-btn:hover {box-shadow:0 8px 0 #9f6a7d,0 16px 25px rgba(141,83,103,.2) !important;}
+@media(min-width:861px) {
+  .scene {overflow-x:hidden;}
+}
+
+/* Keep collectable heart hit targets just outside the gallery cards. */
+@media(max-width:860px) {
+  .scene > .hidden-heart {width:48px;height:48px;}
+  .scene > .hidden-heart:nth-last-child(3),
+  .scene > .hidden-heart:nth-last-child(1) {left:-6px !important;}
+  .scene > .hidden-heart:nth-last-child(2) {right:-6px !important;}
+}
+@media(max-width:390px) {
+  .scene > .hidden-heart:nth-last-child(3),
+  .scene > .hidden-heart:nth-last-child(1) {left:-13px !important;}
+  .scene > .hidden-heart:nth-last-child(2) {right:-13px !important;}
+}
+/* Gallery cards occupy the lower half: move its third collectible into the free side gutter. */
+@media(max-width:860px) {
+  .scene[data-scene="6"] > .hidden-heart:nth-last-child(1) {top:43% !important;}
+}
+/* Legacy decorative radial glows could extend the desktop scene width. */
+@media(min-width:861px) {.scene-question > .question-glow {display:none !important;}}
+@media(max-width:390px) {
+  /* No negative edge offsets, so tiny screens don't gain horizontal scroll width. */
+  .scene > .hidden-heart:nth-last-child(3),
+  .scene > .hidden-heart:nth-last-child(1) {left:2px !important;}
+  .scene > .hidden-heart:nth-last-child(2) {right:2px !important;}
+  .scene[data-scene="7"] > .hidden-heart:nth-last-child(1) {top:43% !important;}
+}
+@media(max-width:390px) {
+  .scene-3 .heart-core {overflow:hidden; border-radius:24px;}
+  .scene-3 .alien-hug {right:0;bottom:0;}
+}

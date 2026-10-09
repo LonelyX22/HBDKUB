@@ -1,0 +1,52 @@
+/* เพลงหน้ารอนับถอยหลัง — คุมโทนพาสเทลเดิม */
+.release-music-control {
+  margin: 14px auto 0;
+  display: grid;
+  justify-items: center;
+  gap: 7px;
+}
+.release-music-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+  padding: 11px 22px;
+  border: 1px solid #d8b5c0;
+  border-radius: 999px;
+  background: linear-gradient(115deg, #f9dfe6, #fff4e8);
+  color: #845866;
+  box-shadow: 0 7px 24px rgba(151, 95, 113, .1);
+  font: 700 clamp(.86rem, 2vw, 1rem) 'Kanit', sans-serif;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.release-music-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(151,95,113,.16);
+}
+.release-music-toggle:focus-visible { outline: 3px solid #ad7285; outline-offset: 4px; }
+.release-music-toggle.is-playing {
+  background: linear-gradient(115deg, #f4c5d2, #f8dfec);
+  border-color: #c78c9c;
+}
+#waiting-music-icon { display: inline-grid; place-items: center; width: 21px; height: 21px; font-size: 1.2rem; }
+.release-music-toggle.is-playing #waiting-music-icon { animation: waitingMusicNote 1.8s ease-in-out infinite; }
+.release-music-hint { color: #9b7b84; font: 400 .79rem 'Kanit', sans-serif; }
+.release-status { margin-top: 15px; }
+@keyframes waitingMusicNote { 0%,100% { transform: rotate(-10deg) scale(.95); } 50% { transform: rotate(12deg) scale(1.1); } }
+@media (max-width: 480px) {
+  .release-music-control { margin-top: 11px; }
+  .release-music-toggle { padding: 10px 15px; font-size: .82rem; }
+  .release-music-hint { font-size: .71rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .release-music-toggle, .release-music-toggle.is-playing #waiting-music-icon { animation: none; transition: none; }
+}
+/* เมื่อเปิดบนมือถือแนวนอนหรือจอเตี้ย ให้เลื่อนการ์ดได้ไม่ตัดปุ่มเพลง */
+.release-gate {
+  overflow-x: hidden;
+  overflow-y: auto;
+  align-items: safe center;
+  overscroll-behavior: contain;
+}

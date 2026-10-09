@@ -1,0 +1,18 @@
+HBD MOM V5 — TEST REPORT (2026-10-08)
+
+Scope: Static HTML / CSS / JavaScript based on the V4 archive.
+Browser engine: headless Chromium using inline HTML/CSS/JS/assets due to navigation restrictions in the test environment.
+
+PASS — 360×780 mobile emulation, 8 scenes, no heading-vs-HUD overlap, no horizontal overflow, no runtime JavaScript errors.
+PASS — 440×956 mobile emulation, 8 scenes, no heading-vs-HUD overlap, no horizontal overflow, no runtime JavaScript errors.
+PASS — 1280×800 desktop emulation, 8 scenes, no heading-vs-HUD overlap, no horizontal overflow, no runtime JavaScript errors.
+PASS — password 0810 / countdown / envelope opening / eight navigation dots.
+PASS — interactive gift, preview PNG card on emulated mobile, Quiz options.
+PASS — 21 hidden hearts clicked in mobile Chromium, 21/21 counter; reward wheel opens, spins and shows a message.
+PASS — JS syntax check for script.js and premium-v5.js.
+
+Important notes:
+- Desktop saves the card by direct download; the mobile preview dialog need not appear on desktop.
+- Inline test uses local/system font fallback, so the user should visually check the real Google Fonts on their own network.
+- No physical iPhone or Safari was available; no measured device-specific FPS guarantee.
+- No user's MP3 or real mother photos were supplied, so these remain placeholders.
